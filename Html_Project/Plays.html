@@ -1,0 +1,97 @@
+
+
+
+
+
+<html>
+<head>
+<title>Project</title>
+<link rel="stylesheet" href="CSS_Project.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="Html_Project.html" class="logo"><img class="image1" src="zTiminz.png"></a>
+    <nav class="navbar">
+        <a href="Html_Project.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Plays.html">Plays</a>
+    </nav>
+</header>
+
+
+
+    <div class="cards-container">
+
+      <form class="search-form">
+        <input type="search" id="search-input" placeholder="Search for a play...">
+        <!-- <button type="submit">Search</button> -->
+      </form>
+
+
+      <style>
+        
+      </style>
+
+      <div class="card">
+        <img class="image" src="zRomeo&Juilet.jpg" alt="Romeo & Juilet image">
+        <h1>Romeo & Juilet</h1>
+        <p class="description">Romeo and Juliet Summary. An age-old vendetta between two powerful families erupts into bloodshed. A group of masked Montagues risk further conflict by gatecrashing a Capulet party. A young lovesick Romeo Montague falls instantly in love with Juliet Capulet, who is due to marry her father's choice, the County Paris.</p>
+        <p class="price">$19.99</p>
+        <!-- <a href="select_time_Romeo&Juilet.html">purchase</a> -->
+        <a href="Purchase1.html">purchase</a>
+      </div>
+
+      <div class="card">
+        <img class="image" src="zHamlet.jpg" alt="Hamlet image">
+        <h1>Hamlet</h1>
+        <p class="description">Hamlet is melancholy, bitter, and cynical, full of hatred for his uncle's scheming and disgust for his mother's sexuality. A reflective and thoughtful young man who has studied at the University of Wittenberg, Hamlet is often indecisive and hesitant, but at other times prone to rash and impulsive acts.</p>
+        <p class="price">$19.99</p>
+        <!-- <a href="select_time_Hamlet.html">purchase</a> -->
+        <a href="Purchase2.html">purchase</a>
+      </div>
+
+      <div class="card">
+        <img class="image" src="zWicked.jpg" alt="Wicked image">
+        <h1>Wicked</h1>
+        <p class="description">Evil or morally bad in principle or practice; sinful; iniquitous: wicked people;wicked habits. mischievous or playfully malicious: These wicked kittens upset everything.</p>
+        <p class="price">$19.99</p>
+        <a href="Purchase3.html">purchase</a>
+      </div>
+
+      <div class="card">
+        <img class="image" src="zCatsMusical.webp" alt="CatsMusical image">
+        <h1>Cats Musical</h1>
+        <p class="description">It is based on the 1939 poetry collection Old Possum's Book of Practical Cats by T.S. Eliot. The musical tells the story of a tribe of cats called the Jellicles and the night they make the "Jellicle choice" by deciding which cat will ascend to the Heaviside Layer and come back to a new life.</p>
+        <p class="price">$19.99</p>
+        <a href="Purchase4.html">purchase</a>
+      </div> 
+    </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 Timinz. All rights reserved.</p>
+        <ul>
+            <li><a>contact us at: 012-345-6789</a></li>
+        </ul>
+    </footer>
+
+    <script>
+      const searchInput = document.getElementById('search-input');
+      const cardsContainer = document.querySelector('.cards-container');
+      const cards = cardsContainer.querySelectorAll('.card');
+
+      searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        cards.forEach((card) => {
+          const title = card.querySelector('h1').textContent.toLowerCase();
+          if (title.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    </script>
+
+</body>
+</html>

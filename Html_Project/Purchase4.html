@@ -1,0 +1,445 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+    <link rel="stylesheet" href="CSS_Project.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding-top: 20px;
+        }
+        .seat_select {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 50px;
+        }
+        #seatingGrid {
+            display: grid;
+            grid-template-columns: repeat(8, 55px);
+            gap: 10px;
+            margin-bottom: 0px;
+        }
+        .seat {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #3CB371;
+            border: 1.5px solid #ccc;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+            font-size: 24px;
+            margin-right: 100px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .seat:hover {
+            transform: scale(1.1);
+        }
+
+        .seat.selected {
+            background-color: orange;
+        }
+        .seat.saved {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+        #submitBtn {
+            display: block;
+            margin: 20px auto;
+            margin-bottom: 50px;
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #submitBtn:hover {
+            background-color: darkblue;
+        }
+        #nameForm {
+            margin: 20px 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+
+        }
+        .time-selection p {
+            margin: 100px 0.1;
+            font-size: 18px;
+            font-weight: bold;
+            align-items: center;
+            justify-content: center;
+            font-weight: 1000;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .time-selection input[type="radio"] {
+            display: none;
+        }
+        .time-selection label {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .time-selection input[type="radio"]:checked + label {
+            background-color: #4285f4;
+            color: white;
+            border-color: #4285f4;
+        }
+        .time-selection label:hover {
+            background-color: #ddd;
+        }
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        table, th, td {
+            border: 2px solid rgb(0, 0, 0);
+            background-color: white;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th{
+            background-color: #4285f4;
+            color: white;
+        }
+        .error-message {
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+            margin-top: 10px;
+        }
+
+        #userName{
+            background-color: rgb(255, 255, 255);
+            border: #4285f4;
+            border-radius: 5px;
+        }
+
+        .div123{
+            font-weight: bold;
+        }
+
+        td {
+    white-space: pre-wrap;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <a href="Html_Project.html" class="logo"> <img class="image1" src="zTiminz.png"></a>
+    <nav class="navbar">
+        <a href="Html_Project.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Plays.html">Plays</a>
+    </nav>
+</header>
+
+<div class="which_play"><p>Cats Musical (hall 4)</p></div>
+
+<div class="seat_select">
+    <head>STAGE</head>
+    <div id="seatingGrid"></div>
+    <form id="nameForm">
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" placeholder="First & Last name" required>
+        <div id="showTime" class="time-selection" required>
+            <p>Monday</p>
+            <input type="radio" id="monday10am" name="showTime" value="Monday 10:00 AM">
+            <label for="monday10am">10:00 AM</label>
+            <input type="radio" id="monday2pm" name="showTime" value="Monday 2:00 PM">
+            <label for="monday2pm">2:00 PM</label>
+            <input type="radio" id="monday6pm" name="showTime" value="Monday 6:00 PM">
+            <label for="monday6pm">6:00 PM</label>
+            <p>Tuesday</p>
+            <input type="radio" id="tuesday10am" name="showTime" value="Tuesday 10:00 AM">
+            <label for="tuesday10am">10:00 AM</label>
+            <input type="radio" id="tuesday2pm" name="showTime" value="Tuesday 2:00 PM">
+            <label for="tuesday2pm">2:00 PM</label>
+            <input type="radio" id="tuesday6pm" name="showTime" value="Tuesday 6:00 PM">
+            <label for="tuesday6pm">6:00 PM</label>
+            <p>Wednesday</p>
+            <input type="radio" id="wednesday10am" name="showTime" value="Wednesday 10:00 AM">
+            <label for="wednesday10am">10:00 AM</label>
+            <input type="radio" id="wednesday2pm" name="showTime" value="Wednesday 2:00 PM">
+            <label for="wednesday2pm">2:00 PM</label>
+            <input type="radio" id="wednesday6pm" name="showTime" value="Wednesday 6:00 PM">
+            <label for="wednesday6pm">6:00 PM</label>
+            <p>Thursday</p>
+            <input type="radio" id="thursday10am" name="showTime" value="Thursday 10:00 AM">
+            <label for="thursday10am">10:00 AM</label>
+            <input type="radio" id="thursday2pm" name="showTime" value="Thursday 2:00 PM">
+            <label for="thursday2pm">2:00 PM</label>
+            <input type="radio" id="thursday6pm" name="showTime" value="Thursday 6:00 PM">
+            <label for="thursday6pm">6:00 PM</label>
+            <p>Friday</p>
+            <input type="radio" id="friday10am" name="showTime" value="Friday 10:00 AM">
+            <label for="friday10am">10:00 AM</label>
+            <input type="radio" id="friday2pm" name="showTime" value="Friday 2:00 PM">
+            <label for="friday2pm">2:00 PM</label>
+            <input type="radio" id="friday6pm" name="showTime" value="Friday 6:00 PM">
+            <label for="friday6pm">6:00 PM</label>
+
+        </div>
+        <button id="submitBtn" type="submit">Reserve</button>
+        <div class="error-message" id="error-message"></div>
+    </form>
+</div>
+
+<table id="seatTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Seats</th>
+            <th>Show Time</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+    <!-- Add a search bar above the table -->
+<div class="search-bar">
+    <input type="search" id="search-input" placeholder="Search by day and time">
+    <!-- <button id="search-btn">Search</button> -->
+  </div>
+  
+  <table id="seatTable">
+    <!-- table content remains the same -->
+</table>
+
+
+
+
+<script>
+    const rows = 5;
+    const cols = 8;
+    const seatingGrid = document.getElementById('seatingGrid');
+    const nameForm = document.getElementById('nameForm');
+    const seatTable = document.getElementById('seatTable').getElementsByTagName('tbody')[0];
+    const errorMessage = document.getElementById('error-message');
+
+    let inputArray4 = JSON.parse(sessionStorage.getItem('inputArray4')) || [];
+    let savedSeats4 = JSON.parse(sessionStorage.getItem('savedSeats4')) || [];
+
+    function createSeats() {
+        for (let row = 1; row <= rows; row++) {
+            for (let col = 1; col <= cols; col++) {
+                const seat = document.createElement('div');
+                seat.className = 'seat';
+                seat.dataset.position = `${row},${col}`;
+                seat.textContent = `${col}`;
+
+
+                const isSelected = inputArray4.includes(`${row},${col}`);
+
+                if (isSelected) {
+                    seat.classList.add('selected');
+                }
+
+                seat.addEventListener('click', function() {
+                    selectSeat(this);
+                });
+
+                seatingGrid.appendChild(seat);
+            }
+        }
+    }
+
+
+
+    function selectSeat(seat) {
+        const position = seat.dataset.position;
+
+        if (inputArray4.includes(position)) {
+            inputArray4 = inputArray4.filter(item => item !== position);
+            seat.classList.remove('selected');
+        } else {
+            inputArray4.push(position);
+            seat.classList.add('selected');
+        }
+
+        sessionStorage.setItem('inputArray4', JSON.stringify(inputArray4));
+    }
+
+    nameForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        errorMessage.textContent = '';
+
+        const userName = document.getElementById('userName').value.trim();
+        const showTime = document.querySelector('input[name="showTime"]:checked').value;
+
+        if (userName && inputArray4.length > 0 && showTime) {
+            let conflict = false;
+            inputArray4.forEach(position => {
+                if (savedSeats4.some(seat => seat.position === position && seat.showTime === showTime)) {
+                    conflict = true;
+                }
+            });
+
+            if (conflict) {
+                errorMessage.textContent = 'One or more selected seats are already taken for this show time.';
+            } else {
+                inputArray4.forEach(position => {
+                    savedSeats4.push({ name: userName, position: position, showTime: showTime });
+                });
+
+                sessionStorage.setItem('savedSeats4', JSON.stringify(savedSeats4));
+                inputArray4 = [];
+                sessionStorage.setItem('inputArray4', JSON.stringify(inputArray4));
+
+                updateSeats();
+                updateTable();
+
+                nameForm.reset();
+            }
+        } else {
+            alert('Please enter your name, select at least one seat, and choose a show time.');
+        }
+    });
+
+    function updateSeats() {
+        seatingGrid.innerHTML = '';
+        createSeats();
+    }
+
+    function updateTable() {
+        seatTable.innerHTML = '';
+
+        const groupedSeats = {};
+
+        savedSeats4.forEach(seat => {
+            const key = `${seat.name}-${seat.showTime}`;
+            if (!groupedSeats[key]) {
+                groupedSeats[key] = {
+                    name: seat.name,
+                    showTime: seat.showTime,
+                    positions: []
+                };
+            }
+            groupedSeats[key].positions.push(seat.position);
+        });
+
+        for (const key in groupedSeats) {
+            const row = seatTable.insertRow();
+            row.insertCell(0).textContent = groupedSeats[key].name;
+            row.insertCell(1).textContent = groupedSeats[key].positions.join(', ');
+            row.insertCell(2).textContent = groupedSeats[key].showTime;
+        }
+    }
+
+                                function updateTable() {
+                                seatTable.innerHTML = '';
+
+                                const groupedSeats = {};
+
+                                savedSeats4.forEach(seat => {
+                                    const key = `${seat.name}-${seat.showTime}`;
+                                    if (!groupedSeats[key]) {
+                                        groupedSeats[key] = {
+                                            name: seat.name,
+                                            showTime: seat.showTime,
+                                            positions: []
+                                        };
+                                    }
+                                    const [row, col] = seat.position.split(',');
+                                    groupedSeats[key].positions.push(`Row ${row}, Seat ${col}`);
+                                });
+
+                                for (const key in groupedSeats) {
+                                    const row = seatTable.insertRow();
+                                    row.insertCell(0).textContent = groupedSeats[key].name;
+                                    row.insertCell(1).textContent = groupedSeats[key].positions.join('\n');
+                                    row.insertCell(2).textContent = groupedSeats[key].showTime;
+                                }
+                            }
+
+
+
+                        // Get the search input and table elements
+                        const searchInput = document.getElementById('search-input');
+                        // const seatTable = document.getElementById('seatTable').getElementsByTagName('tbody')[0];
+
+                        // Add an event listener to the search input
+                        searchInput.addEventListener('input', searchSeats);
+
+                        function searchSeats() {
+                            const searchTerm = searchInput.value.trim().toLowerCase();
+                            const rows = seatTable.rows;
+
+                            // Hide all rows initially
+                            for (let i = 0; i < rows.length; i++) {
+                            rows[i].style.display = 'none';
+                            }
+
+                            // Show only the rows that match the search term
+                            for (let i = 0; i < rows.length; i++) {
+                            const row = rows[i];
+                            const showTimeCell = row.cells[2];
+                            if (showTimeCell.textContent.toLowerCase().includes(searchTerm)) {
+                                row.style.display = '';
+                            }
+                            }
+                        }
+
+
+    createSeats();
+    updateTable();
+   
+</script>
+
+<footer class="footer">
+    <p>&copy; 2024 Timinz. All rights reserved.</p>
+    <ul>
+        <li><a>contact us at: 012-345-6789</a></li>
+    </ul>
+</footer>
+
+</body>
+</html>
